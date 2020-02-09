@@ -9,6 +9,8 @@ export default function usePromise(promiseCreator, deps) {
   const [resolved, setResolved] = useState(null);
   const [error, setError] = useState(null);
 
+  // useEffect에 등록하는 함수는 async로 작성하면 안됨
+  // 그 대신 함수 내부에 async 함수를 따로 만들어줘야 함
   useEffect(() => {
     const process = async () => {
       setLoading(true);
